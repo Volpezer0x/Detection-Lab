@@ -1,28 +1,15 @@
 # 🔎 Lab Scope
 
-This lab focuses on **endpoint-focused detection**, not perimeter security or advanced malware development.
+This lab focuses on **endpoint-focused detection**.
 
 ## ✅ In Scope
+
 - Endpoint telemetry generation
 - Process, network, and command-line visibility
 - Sysmon logging
-- Splunk ingestion and field extraction
-- Basic attack simulation (scanning, payload execution)
 
 ## ❌ Out of Scope
+
 - Exploit development
 - Live malware deployment
 - Internet-facing infrastructure
-- Production security hardening
-
-> ⚠️ **All testing is performed in an isolated virtual environment.**
-
----
-
-# 🎯 Lab Objectives
-
-By completing this lab, you will learn to:
-1. Simulate attacker behavior in a safe lab
-2. Generate realistic telemetry on Windows endpoints
-3. Parse and analyze telemetry in Splunk
-4. Convert raw telemetry into actionable detection logic
