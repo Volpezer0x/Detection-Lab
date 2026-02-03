@@ -26,8 +26,7 @@ Initial reconnaissance was performed from the Kali attacker machine against the 
 ```bash
 nmap -A 192.168.20.10
 ```
-# Outcome 
-
+ 
 ## ❌ Issues Encountered
 
 - Initial scans returned no open ports
@@ -36,7 +35,7 @@ nmap -A 192.168.20.10
 
 - Fixed via firewall rule adjustments
 
-Generated:
+## ✅Outcome
 
 - Network connections
 
