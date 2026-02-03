@@ -70,8 +70,8 @@ See the folder breakdown above. Each section is meant to document **why it exist
 ## How to Use
 
 - Read files sequentially for full lab context  
-- Explore screenshots in `/07-validation/screenshots/`  
-- Review `/06-troubleshooting/` for real-world problem-solving examples  
+- Explore screenshots in `/09-validation/screenshots/`  
+- Review `/07-troubleshooting/` for real-world problem-solving examples  
 
 ---
 
