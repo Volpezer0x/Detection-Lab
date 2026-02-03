@@ -1,30 +1,30 @@
-# 🔎 Lab Scope
+# 🔎 Lab Scope & Context
 
-This lab focuses on **endpoint-focused detection**, not perimeter security or advanced malware development.
+This lab focuses on **endpoint detection engineering**, not exploit development or red-team operations.
+
+The primary goal is to understand:
+- how attacker actions generate telemetry
+- how endpoints log activity
+- how SIEMs ingest and normalize logs
+- where visibility breaks down
 
 ---
 
-## 🎯 Scope
+## ✅ In Scope
 
-### In Scope
 - Endpoint telemetry generation
-- Process, network, and command-line visibility
-- Sysmon logging
-- Splunk ingestion and field extraction
-- Basic attack simulation (scanning, payload execution)
-
-### Out of Scope
-- Exploit development
-- Live malware deployment
-- Internet-facing infrastructure
-- Production security hardening
-
-All testing is performed in an **isolated virtual environment**.
+- Process, network, and command-line logging
+- Sysmon configuration and tuning
+- Splunk ingestion and search
+- Basic attack simulation
 
 ---
 
-## 🧩 Lab Philosophy
+## ❌ Out of Scope
 
-- Learn by doing, not just reading
-- Document mistakes and fixes
-- Build skills transferable to real SOC/blue team work
+- Exploit development
+- Internet-facing infrastructure
+- Live malware deployment
+- Production hardening
+
+All testing is performed in an **isolated lab network**.
