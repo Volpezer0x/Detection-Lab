@@ -1,4 +1,4 @@
-# 🔎 Lab Context
+# 🔎 Lab Scope
 
 This lab focuses on **endpoint-focused detection**, not perimeter security or advanced malware development.
 
