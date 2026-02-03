@@ -4,7 +4,7 @@ This section explains **how to safely connect your virtual machines** while mini
 
 ---
 
-## 🧩 Network Modes
+## 🧩 Used Network Modes
 
 | VM Platform | Recommended Mode |
 |------------|----------------|
