@@ -39,6 +39,32 @@ Subnet: `255.255.255.0`
 ## 🧪 Connectivity Testing
 
 From Kali:
-```bash
+```bash 
 ping 192.168.20.10
 nmap -sn 192.168.20.0/24
+```
+From Windows:
+```powershell
+ping 192.168.20.11
+```
+## ❌ Issues Encountered
+
+**Issue 1: Ping Fails**
+
+Cause: Windows Firewall blocked ICMP
+Fix:
+```powershell
+New-NetFirewallRule -Name AllowICMP -Protocol ICMPv4 -IcmpType 8 -Action Allow
+```
+**Issue 2: Nmap Shows All Ports Filtered**
+
+Cause: Windows Firewall silently dropping packets
+Fix: Temporarily allowed test ports for scanning
+
+## ✅ Outcome
+
+- All VMs communicate internally
+
+- No internet access
+
+- Safe environment for attack simulation
