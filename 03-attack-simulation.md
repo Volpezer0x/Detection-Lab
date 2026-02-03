@@ -2,7 +2,7 @@
 
 This phase simulates **attacker behavior** to generate realistic endpoint telemetry that can later be analyzed from a defender’s perspective.
 
-The objective is not exploitation, but **activity generation** — creating the kinds of signals a SOC analyst or detection engineer would expect to see during early-stage attacker behavior.
+The objective is not exploitation, but **activity generation** creating the kinds of signals a SOC analyst or detection engineer would expect to see during early-stage attacker behavior.
 
 ---
 
@@ -26,15 +26,7 @@ Initial reconnaissance was performed from the Kali attacker machine against the 
 ```bash
 nmap -A 192.168.20.10
 ```
-## Outcome 
-
-Generated:
-
-- Network connections
-
-- Process execution logs
-
-- Firewall interaction
+# Outcome 
 
 ## ❌ Issues Encountered
 
@@ -43,3 +35,11 @@ Generated:
 - Firewall blocked probes
 
 - Fixed via firewall rule adjustments
+
+Generated:
+
+- Network connections
+
+- Process execution logs
+
+- Firewall interaction
