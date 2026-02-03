@@ -16,7 +16,7 @@ This section details **how to create and configure virtual machines** for your h
 
 ## ⚙️ Configuration Notes
 
-- Base VMs created in **VirtualBox** (or VMware if preferred)
+- Base VMs created in **VirtualBox** (You guys can use VMware if preferred or you prefered hypervisor)
 - Minimal resources allocated for lab purposes
   - 4 GB RAM per VM
   - 2 vCPU
