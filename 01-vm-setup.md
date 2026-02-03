@@ -1,33 +1,48 @@
 # 🖥️ Part 1: Virtual Machine Setup
 
-This section details **how to create and configure virtual machines** for your home lab.
+This phase establishes the core lab environment using **three virtual machines**.
 
 ---
 
-## 🛠️ Virtual Machines Deployed
+## 🧱 Virtual Machines
 
 | VM | Purpose |
 |----|--------|
-| Kali Linux | Attacker machine (Nmap, Metasploit, Netcat) |
-| Windows 10 / 11 | Victim endpoint (Sysmon, Defender, Splunk Forwarder) |
-| Splunk Enterprise | SIEM for log ingestion and analysis |
+| Kali Linux | Attacker |
+| Windows 10 | Victim endpoint |
+| Splunk Enterprise | SIEM |
 
 ---
 
-## ⚙️ Configuration Notes
+## 🛠️ Installation Notes
 
-- Base VMs created in **VirtualBox** (You guys can use VMware if preferred or you prefered hypervisor)
-- Minimal resources allocated for lab purposes
-  - 4 GB RAM per VM
-  - 2 vCPU
-  - 40 GB disk
-- Snapshots created after clean install for easy rollback
-- ISO sources verified (official Kali, Windows evaluation)
+### Kali Linux
+- Used as the attacker platform
+- Tools required:
+  - nmap
+  - msfconsole
+  - msfvenom
+- Confirm networking tools installed before proceeding
+
+### Windows 10
+- Used as victim endpoint
+- Sysmon installed later
+- Windows Defender kept enabled initially to observe behavior
+
+### Splunk
+- Standalone Splunk Enterprise instance
+- Dedicated VM to avoid resource contention
 
 ---
 
-## 📌 Key Takeaways
+## ⚠️ Early Issues Encountered
 
-- Keep VMs isolated from your host network initially
-- Snapshots are essential before testing
-- Document VM IPs, hostnames, and credentials in a **secure notes file**
+- Windows VM performance degraded due to low RAM
+- Splunk indexing lag when sharing resources
+- Fixed by allocating additional memory and CPU cores
+
+---
+
+## ✅ Outcome
+
+All VMs boot reliably and are ready for network configuration.
