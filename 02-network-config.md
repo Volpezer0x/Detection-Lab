@@ -1,48 +1,44 @@
-# 🖥️ Part 1: Virtual Machine Setup
+# 🌐 Part 2: Network Configuration & Isolation
 
-This phase establishes the core lab environment using **three virtual machines**.
-
----
-
-## 🧱 Virtual Machines
-
-| VM | Purpose |
-|----|--------|
-| Kali Linux | Attacker |
-| Windows 10 | Victim endpoint |
-| Splunk Enterprise | SIEM |
+This phase focuses on **safe VM communication** while preventing exposure to the host network.
 
 ---
 
-## 🛠️ Installation Notes
+## 🧩 Network Mode Selection
 
-### Kali Linux
-- Used as the attacker platform
-- Tools required:
-  - nmap
-  - msfconsole
-  - msfvenom
-- Confirm networking tools installed before proceeding
+The following modes were evaluated:
 
-### Windows 10
-- Used as victim endpoint
-- Sysmon installed later
-- Windows Defender kept enabled initially to observe behavior
+| Mode | Result |
+|----|------|
+| Bridged | Rejected (unsafe for malware testing) |
+| NAT | Limited VM-to-VM communication |
+| NAT Network | Works but still allows internet |
+| Internal Network | Selected |
 
-### Splunk
-- Standalone Splunk Enterprise instance
-- Dedicated VM to avoid resource contention
+**Internal Network** was chosen to ensure:
+- no internet access
+- VM-to-VM communication
+- complete host isolation
 
 ---
 
-## ⚠️ Early Issues Encountered
+## 🔧 Static IP Configuration
 
-- Windows VM performance degraded due to low RAM
-- Splunk indexing lag when sharing resources
-- Fixed by allocating additional memory and CPU cores
+Static IPs were assigned to avoid detection inconsistencies.
+
+| VM | IP |
+|----|----|
+| Windows | 192.168.20.10 |
+| Kali | 192.168.20.11 |
+| Splunk | 192.168.20.12 |
+
+Subnet: `255.255.255.0`
 
 ---
 
-## ✅ Outcome
+## 🧪 Connectivity Testing
 
-All VMs boot reliably and are ready for network configuration.
+From Kali:
+```bash
+ping 192.168.20.10
+nmap -sn 192.168.20.0/24
