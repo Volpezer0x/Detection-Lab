@@ -1,4 +1,5 @@
-# 📡 Part 4: Telemetry Generation (Sysmon)
+# ⚠This Page Is Under Construction
+# 📡 Part 4: Telemetry Generation (Sysmon) 
 
 This phase focuses on generating **high‑fidelity endpoint telemetry** using Sysmon so attacker activity can be reliably observed, searched, and analyzed inside Splunk.
 
