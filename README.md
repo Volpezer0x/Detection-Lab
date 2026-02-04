@@ -80,3 +80,5 @@ See the folder breakdown above. Each section is meant to document **why it exist
 - Build detection logic on parsed Sysmon events  
 - Add advanced attack scenarios  
 - Expand documentation for multi-layer threat modeling
+- mapping generated telemetry to MITRE ATT&CK techniques
+to validate detection coverage.
