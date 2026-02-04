@@ -6,6 +6,9 @@ endpoint monitoring, attack simulation, and detection engineering.
 The lab consists of an attacker machine (Kali Linux), a victim endpoint (Windows),
 and a SIEM platform (Splunk Enterprise), all connected through an isolated virtual network.
 
+⚠ Note: Splunk Enterprise runs as a dedicated VM within the same isolated network.
+
+
 ---
 
 ## Logical Architecture Diagram
@@ -62,7 +65,7 @@ and a SIEM platform (Splunk Enterprise), all connected through an isolated virtu
 ---
 
 
-All systems are isolated from the internet to safely simulate malicious activity.
+All systems are intentionally isolated from the internet to safely simulate malicious activity without external risk.
 
 ---
 
@@ -77,9 +80,22 @@ All systems are isolated from the internet to safely simulate malicious activity
  - Parent-child relationships
 4. Splunk Universal Forwarder sends logs to Splunk Enterprise
 5. Splunk parses XML, flattens fields, and enables SPL-based detection
-
+```
 ---
 
+```yaml
+
+## Detection Engineering Focus
+
+This lab was designed specifically to:
+
+- Validate endpoint visibility
+- Understand firewall and telemetry blind spots
+- Practice Sysmon XML parsing and field normalization
+- Simulate real attacker behavior rather than synthetic logs
+```
+
+```yaml
 ## Why This Architecture Matters
 
 This lab mirrors real-world SOC workflows:
