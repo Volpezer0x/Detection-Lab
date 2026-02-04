@@ -2,7 +2,9 @@
 
 This section documents **every issue encountered from initial lab setup to final Splunk field validation**, including misconfigurations, incorrect assumptions, tooling gaps, and parsing problems. Each issue includes symptoms, failed attempts, diagnosis steps, fixes, and lessons learned.
 
-The goal is to help others **recognize the same failure patterns quickly** and avoid repeating the same mistakes. Note that I'm using both the Linux terminal as well as Powershell on Windows.
+The goal is to help others **recognize the same failure patterns quickly** and avoid repeating the same mistakes. 
+
+⚠ Note that I'm using both the Linux terminal as well as Powershell on Windows.
 
 ---
 
