@@ -57,7 +57,6 @@ This lab mirrors real SOC challenges:
 - Tools appear broken due to configuration  
 - Misconfiguration looks like failure  
 
-It shows **analytical thinking, troubleshooting, and system understanding** — exactly what employers seek.
 
 ---
 
