@@ -19,6 +19,7 @@ This phase establishes the core lab environment using **two virtual machines** h
 - Used as the attacker platform
 - Tools required:
   - nmap
+  - metasploit
   - msfconsole
   - msfvenom
   - netcat
