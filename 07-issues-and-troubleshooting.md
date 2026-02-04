@@ -109,7 +109,7 @@ nc 192.168.20.10 8050
 
 In my mind I was thinking if Netcat works, Nmap should work.
 
-##Diagnosis
+## Diagnosis
 
 - Netcat connects to a specific allowed port
 
