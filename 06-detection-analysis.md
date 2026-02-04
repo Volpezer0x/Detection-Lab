@@ -1,3 +1,4 @@
+# ⚠This Page Is Under Construction
 # 🔵 Part 6: Detection & Analysis
 
 This phase focuses on analyzing telemetry and identifying suspicious patterns.
