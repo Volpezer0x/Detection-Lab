@@ -10,18 +10,82 @@ and a SIEM platform (Splunk Enterprise), all connected through an isolated virtu
 
 ## Logical Architecture Diagram
 
-```mermaid
-flowchart LR
-    Kali[Kali Linux VM\nAttacker\n\nTools:\n- Nmap\n- Netcat\n- Metasploit]
-    
-    Win[Windows 10/11 VM\nVictim Endpoint\n\n- Sysmon\n- Windows Defender Firewall\n- Splunk Universal Forwarder]
-    
-    Splunk[Splunk Enterprise\nDetection & Analysis\n\n- Sysmon TA\n- Field Extraction\n- Index: endpoint]
+```text
++------------------------+
+|     Kali Linux VM      |
+|       (Attacker)       |
+|                        |
+| Tools:                 |
+|  - Nmap                |
+|  - Netcat              |
+|  - Metasploit          |
++-----------+------------+
+            |
+            | Recon / Exploit Traffic
+            | (TCP, ICMP, NSE, Payloads)
+            v
++------------------------+
+|      Windows VM        |
+|   (Victim Endpoint)    |
+|                        |
+|  - Sysmon              |
+|  - Windows Firewall    |
+|  - Defender            |
+|  - PowerShell          |
+|  - Splunk Forwarder    |
++-----------+------------+
+            |
+            | Sysmon + WinEvent Logs
+            | (XML -> Flattened Fields)
+            v
++------------------------+
+|   Splunk Enterprise    |
+|        (SIEM)          |
+|                        |
+|  - Custom Sysmon TA    |
+|  - Field Normalization |
+|  - Index: endpoint     |
+|  - SPL Analysis        |
++------------------------+
+```
 
-    Kali -- Reconnaissance / Exploitation --> Win
-    Win -- Sysmon + Windows Event Logs --> Splunk
 
-    subgraph Isolated_Virtual_Network
-        Kali
-        Win
-    end
+---
+
+## Network Topology
+```yaml
+- Virtualized using: VirtualBox / VMware
+- Network Mode: **Host-Only** or **Internal Network**
+- Example Subnet:
+```
+
+---
+
+
+All systems are isolated from the internet to safely simulate malicious activity.
+
+---
+
+## Data Flow Explanation
+
+```yaml
+1. Kali Linux initiates reconnaissance and exploitation activity
+2. Windows endpoint receives traffic and generates telemetry
+3. Sysmon records:
+ - Process creation
+ - Network connections
+ - Parent-child relationships
+4. Splunk Universal Forwarder sends logs to Splunk Enterprise
+5. Splunk parses XML, flattens fields, and enables SPL-based detection
+
+---
+
+## Why This Architecture Matters
+
+This lab mirrors real-world SOC workflows:
+
+- Attack simulation → telemetry generation
+- Endpoint visibility → log ingestion
+- Parsing failures → troubleshooting
+- Detection validation using real attacker behavior
+```
