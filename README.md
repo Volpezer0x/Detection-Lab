@@ -70,7 +70,7 @@ See the folder breakdown above. Each section is meant to document **why it exist
 ## How to Use
 
 - Read files sequentially for full lab context   
-- Review `/07-issues-and-troubleshooting/` for real-world problem-solving examples  
+- Review `/07-issues-and-troubleshooting/` <a href="https://github.com/Volpezer0x/Detection-Lab">07-issues-and-troubleshooting</a> for real-world problem-solving examples  
 
 ---
 
