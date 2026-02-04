@@ -302,3 +302,163 @@ nmap -A 192.168.20.10
 ## Lesson Learned
 
 Aggressive scans require permissive/vulnerable environments.
+
+---
+
+## ❌ ISSUE 10 — Splunk Receives Logs but Fields Missing
+
+### Symptom
+
+- Events visible
+
+- Fields appear as:
+```less
+Event.System.Execution{@ProcessID}
+```
+## Diagnosis
+
+- Raw XML ingestion
+
+- No parsing or flattening
+
+## Fix
+
+Enable XML parsing:
+
+```ini
+KV_MODE = xml
+```
+## Lesson Learned
+
+Ingestion does not equal usable data.
+---
+
+## ❌ ISSUE 11 — Wrong Source Instead of Sourcetype
+
+### Symptom
+
+Logs appear as:
+
+```
+source=WinEventLog:System
+```
+## Diagnosis
+
+Sysmon logs must use:
+```
+XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+```
+## Fix
+
+Match props.conf stanza exactly.
+
+## Lesson Learned
+
+Splunk config matching is literal and case sensitive.
+
+---
+
+## ❌ ISSUE 12 — TA Folder Does Not Exist
+
+###Symptom
+
+Expected:
+
+```
+TA-sysmon-custom
+```
+Folder missing.
+
+## Diagnosis
+
+Splunk does not auto-create TAs.
+
+## Fix
+
+Manually created full TA directory structure using ChatGPT
+
+Lesson Learned
+
+TAs are just Splunk addon apps.
+
+---
+
+## ❌ ISSUE 13 — Fields Still Missing After Config Changes
+
+### Symptom
+
+Aliases defined but fields not visible.
+
+## Diagnosis
+
+- Splunk does not retroactively parse old events
+
+- No new Sysmon activity generated
+
+## Fix
+
+Generate new events via Metasploit
+
+Restart Splunk service
+
+## Lesson Learned
+
+Parsing applies only to new data.
+
+---
+
+## ❌ ISSUE 14 — table Image ParentImage CommandLine Returns Nothing
+
+###Symptom
+```spl
+| table Image ParentImage CommandLine
+```
+## Diagnosis
+
+- Fields renamed via FIELDALIAS
+
+- Querying wrong field names
+
+## Fix
+```spl
+| table _time process_exec parent_process_exec command_line
+```
+## Lesson Learned
+
+Always query the final field name.
+
+## ❌ ISSUE 15 — Uncertainty Around dest_port
+
+##Symptom
+
+Unsure if `dest_port` exists.
+
+## Diagnosis
+
+- Only present in Sysmon Event ID 3
+
+- Requires network activity
+
+## Fix
+
+Verified via:
+```spl
+| fields dest_port
+```
+## Lesson Learned
+
+Field presence depends on event type.
+
+## 📚 Final Meta-Lesson
+
+- Most failures were not tool failures — they were expectation mismatches.
+
+- Firewalls worked as designed
+
+- SIEMs require parsing !!!
+
+- Logs are useless without normalization
+
+- “Working” does not mean “visible”
+
+- I believe this troubleshooting process closely mirrors real SOC work and highlights the importance of understanding how tools actually behave, not how we expect them to behave.
