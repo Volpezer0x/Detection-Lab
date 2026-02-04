@@ -210,3 +210,95 @@ Installed Netcat manually
 ## Lesson Learned
 
 Windows does not ship with common Linux utilities.
+---
+## ❌ ISSUE 7 — PowerShell TCP Listener Type Error
+### Symptom
+
+```powershell
+System.Net.Socket.TcpListener
+```
+
+## Error:
+
+```
+Unable to find type
+```
+## Diagnosis
+
+Incorrect .NET namespace.
+
+## Fix
+
+Correct namespace:
+
+```powershell
+System.Net.Sockets.TcpListener
+```
+## Lesson Learned
+
+.NET namespaces must be exact.
+
+---
+
+## ❌ ISSUE 8 — Port Appears in TIME_WAIT but Not LISTENING
+### Symptom
+```powershell
+netstat -ano
+```
+
+## Shows:
+
+```text
+TIME_WAIT
+```
+## Diagnosis
+
+- Listener not persistent
+
+- Connection closed immediately
+
+## Fix
+
+Run a persistent listener.
+
+## Lesson Learned
+
+TIME_WAIT ≠ open port.
+
+---
+## ❌ ISSUE 9 — nmap -A Fails with Firewall Enabled
+###Symptom
+
+```bash
+nmap -A 192.168.20.10
+```
+
+- OS detection fails
+
+- NSE scripts fail
+
+- Ports filtered
+
+## Diagnosis
+
+`-A` performs:
+
+- OS fingerprinting
+
+- Traceroute
+
+- NSE script execution
+
+- All blocked by firewall.
+
+## Fix
+
+- Allow ICMP
+
+- Allow specific ports
+
+- Accept scan limitations
+
+## Lesson Learned
+
+Aggressive scans require permissive/vulnerable environments.
