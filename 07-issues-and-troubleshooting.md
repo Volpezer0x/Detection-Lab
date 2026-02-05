@@ -269,7 +269,7 @@ TIME_WAIT ≠ open port.
 
 ---
 ## ❌ ISSUE 9 — nmap -A Fails with Firewall Enabled
-###Symptom
+### Symptom
 
 ```bash
 nmap -A 192.168.20.10
