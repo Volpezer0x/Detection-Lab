@@ -57,9 +57,8 @@ and a SIEM platform (Splunk Enterprise), all connected through an isolated virtu
 
 ## Network Topology
 ```yaml
-- Virtualized using: VirtualBox / VMware
-- Network Mode: **Host-Only** or **Internal Network**
-- Example Subnet:
+- Virtualized using: VirtualBox
+- Network Mode: **Internal Network**
 ```
 
 ---
@@ -78,8 +77,9 @@ All systems are intentionally isolated from the internet to safely simulate mali
  - Process creation
  - Network connections
  - Parent-child relationships
-4. Splunk Universal Forwarder sends logs to Splunk Enterprise
-5. Splunk parses XML, flattens fields, and enables SPL-based detection
+4. Splunk Enterprise index created pointing to Sysmon logs
+5. Custom Splunk TA created for proper log parsing
+6. Splunk parses XML, flattens fields, and enables SPL-based detection
 ```
 ---
 
