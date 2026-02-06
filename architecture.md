@@ -35,7 +35,7 @@ and a SIEM platform (Splunk Enterprise), all connected through an isolated virtu
 |  - Windows Firewall    |
 |  - Defender            |
 |  - PowerShell          |
-|  - Splunk Forwarder    |
+|  - Splunk Enterprise   |
 +-----------+------------+
             |
             | Sysmon + WinEvent Logs
