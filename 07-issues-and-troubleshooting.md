@@ -362,26 +362,60 @@ Splunk config matching is literal and case sensitive.
 
 ## ❌ ISSUE 12 — TA Folder Does Not Exist
 
-###Symptom
+### Symptoms Observed
+- Sysmon events appeared as **raw XML**
+- Fields were deeply nested (e.g. `Event.System.Execution{@ProcessID}`)
+- Common fields such as:
+  - Image
+  - ParentImage
+  - CommandLine  
+  were **not searchable**
+- SPL queries returned empty tables despite visible events
 
-Expected:
+At this stage, **telemetry existed but was unusable**.
 
+## Fix Implemented:
+
+- Created a **custom Sysmon Technical Add-on**  
+- Enabled XML parsing
+- Flattened critical fields using both **transforms** and **FIELDALIAS** definitions
+
+### Example `props.conf` used in the custom TA:
+
+```ini
+[XmlWinEventLog:Microsoft-Windows-Sysmon/Operational]
+SHOULD_LINEMERGE = true
+KV_MODE = xml
+NO_BINARY_CHECK = true
+TRUNCATE = 0
+
+# --- Flatten all fields using transforms ---
+REPORT-extract-process = extract_process_fields
+REPORT-extract-file = extract_file_fields
+REPORT-extract-network = extract_network_fields
+REPORT-extract-registry = extract_registry_fields
+REPORT-extract-dns = extract_dns_fields
+REPORT-extract-hashes = extract_hash_fields
+
+# --- Optional FIELDALIASES ---
+FIELDALIAS-process_id = process_id AS process_id
+FIELDALIAS-process_guid = process_guid AS process_guid
+FIELDALIAS-process_exec = process_exec AS process_exec
+FIELDALIAS-parent_process_id = parent_process_id AS parent_process_id
+FIELDALIAS-parent_process_exec = parent_process_exec AS parent_process_exec
+FIELDALIAS-command_line = command_line AS command_line
+FIELDALIAS-parent_command_line = parent_command_line AS parent_command_line
+FIELDALIAS-user = user AS user
+FIELDALIAS-src_ip = src_ip AS src_ip
+FIELDALIAS-dest_ip = dest_ip AS dest_ip
+FIELDALIAS-src_port = src_port AS src_port
+FIELDALIAS-dest_port = dest_port AS dest_port
+FIELDALIAS-provider_name = provider_name AS provider_name
+FIELDALIAS-provider_guid = provider_guid AS provider_guid
+FIELDALIAS-security_userid = security_userid AS security_userid
 ```
-TA-sysmon-custom
-```
-Folder missing.
 
-## Diagnosis
-
-Splunk does not auto-create TAs.
-
-## Fix
-
-Manually created full TA directory structure using ChatGPT
-
-Lesson Learned
-
-TAs are just Splunk addon apps.
+#### >>> Created some telemetry on Linux after creating the custom TA to confirm that the parsing is now correct.
 
 ---
 
