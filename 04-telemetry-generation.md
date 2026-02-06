@@ -148,7 +148,7 @@ FIELDALIAS-security_userid = security_userid AS security_userid
 ```
 > Parsing fixes only applied to **newly ingested events**, requiring attacker activity to be re-executed !!!
 ---
-## 🧪 Validation
+## 🧪 Validation in Splunk
 
 After applying parsing fixes, Sysmon telemetry became fully searchable and usable.
 
