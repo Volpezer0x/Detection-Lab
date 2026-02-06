@@ -42,7 +42,7 @@ The lab emphasizes **visibility**, **troubleshooting**, and **SOC-level investig
    - Fix: Explicit inbound rules for ICMP/TCP
 2. **Splunk ingesting Sysmon logs but fields missing**
    - Issue: XML unflattened, missing TA
-   - Fix: Custom props.conf / transforms.conf
+   - Fix: Custom props.conf / transforms & aliases
 3. **PowerShell firewall commands failing**
    - Issue: Incorrect parameter usage
    - Fix: Explicit New-NetFirewallRule commands
