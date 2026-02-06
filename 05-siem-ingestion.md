@@ -171,3 +171,13 @@ index=endpoint source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" Even
 - License validity and system performance directly affect ingestion speed and search reliability.
 
 ---
+
+## 🖼️ Telemetry Flow Diagram
+```mermaid
+flowchart TD
+    A[Kali Linux VM - Attacker] -->|Recon and Payloads| B[Windows 11 VM - Victim]
+    B -->|Sysmon Logging| C[Sysmon Operational Logs]
+    C -->|Custom TA Parsing| D[Splunk Enterprise - endpoint index]
+    D -->|SPL Analysis| E[Detection Validation]
+```
+* ⚠ See docs/architecture.md for the full lab data flow diagram.*
