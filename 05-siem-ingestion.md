@@ -180,4 +180,4 @@ flowchart TD
     C -->|Custom TA Parsing| D[Splunk Enterprise - endpoint index]
     D -->|SPL Analysis| E[Detection Validation]
 ```
-* ⚠ See docs/architecture.md for the full lab data flow diagram.*
+* ⚠ See <a href="https://github.com/Volpezer0x/Detection-Lab"> Archetecture.md for the full lab data flow diagram.*
