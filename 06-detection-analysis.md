@@ -84,11 +84,11 @@ This confirmed:
 
 - the full execution timeline
 
-## 🆔 Why Process GUIDs Are Better Than Process IDs
+### 🆔 Why Process GUIDs Are Better Than Process IDs
 
 While Process IDs (PIDs) are useful, they are not reliable for forensic correlation in modern systems.
 
-## 🚫 Limitations of Process IDs
+### 🚫 Limitations of Process IDs
 
 - PIDs are reused by the operating system
 
@@ -98,7 +98,7 @@ While Process IDs (PIDs) are useful, they are not reliable for forensic correlat
 
 - Correlating across logs can lead to false associations
 
-## ✅ Advantages of Process GUIDs
+### ✅ Advantages of Process GUIDs
 
 - Globally unique per process execution
 
@@ -110,7 +110,7 @@ While Process IDs (PIDs) are useful, they are not reliable for forensic correlat
 
 - Ideal for attack chain reconstruction
 
-## 🧠 Practical SOC Perspective
+### 🧠 Practical SOC Perspective
 
 In real investigations:
 
@@ -126,7 +126,7 @@ For this reason, Process GUIDs are the preferred pivot point when:
 
 - reconstructing attacker timelines
 
-## 🎯 Key Takeaway
+### 🎯 Key Takeaway
 
 - Process IDs help with visibility.
 - Process GUIDs enable investigation.
