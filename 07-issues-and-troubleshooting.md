@@ -487,21 +487,23 @@ Ensured searches and props.conf stanzas matched the correct **sourcetype**.
 ### Lesson Learned
 > `source` is metadata.  
 > `sourcetype` controls parsing.
-> 
+
+---
+
 ## Lesson Learned
 
-Field presence depends on event type.
+- Field presence depends on event type.
 
 > **Advanced Insight**
 >
-> Several issues in this lab were not configuration errors — they were **correct security controls behaving as intended**.
+> Several issues in this lab were not configuration errors, they were **correct security controls behaving as intended**.
 >
 > This reinforced an important lesson:
 > > Detection engineering starts with understanding *why* visibility is missing, not assuming failure.
 
 ## 📚 Final Meta-Lesson
 
-- Most failures were not tool failures — they were expectation mismatches.
+- Most failures were not tool failures, they were expectation mismatches.
 
 - Firewalls worked as designed
 
