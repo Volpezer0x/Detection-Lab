@@ -1,82 +1,91 @@
-# Cybersecurity Home Lab: Detection, Visibility, and Troubleshooting
+# 🛡️ Cybersecurity Home Detection Lab  
+## Detection, Visibility, and Troubleshooting
 
-This repository documents a fully isolated cybersecurity home lab built to simulate realistic attack, defense, and detection scenarios.
+This repository documents a **fully isolated cybersecurity home lab** designed to simulate realistic attack activity and analyze how that activity is observed, ingested, and investigated.
 
-The lab emphasizes **visibility**, **troubleshooting**, and **SOC-level investigative skills**, rather than just tool installation.
+The lab prioritizes **visibility, troubleshooting, and SOC-level investigative thinking**, not just tool installation or exploit execution.
 
 ---
 
-## Core Objectives
+## 🎯 Core Objectives
 
-- Design a safe environment for offensive testing
-- Generate and collect endpoint telemetry using Sysmon
+- Design a safe, isolated environment for controlled attack simulation
+- Generate high-fidelity endpoint telemetry using Sysmon
 - Ingest and normalize logs in Splunk
-- Diagnose visibility failures across network, host, and SIEM layers
-- Document mistakes, assumptions, and fixes
+- Identify and resolve visibility failures across host, network, and SIEM layers
+- Document assumptions, mistakes, and fixes encountered during analysis
 
 ---
 
-## Lab Components
+## 🧩 Lab Components
 
 | Component | Purpose | Key Notes |
-|-----------|---------|-----------|
-| Kali Linux | Attack & enumeration | Nmap, Netcat, Metasploit |
-| Windows Endpoint | Victim system | Sysmon, Defender, Firewall enabled |
-| Splunk Enterprise | Centralized log ingestion | Custom Sysmon TA for field extraction |
+|---------|---------|----------|
+| Kali Linux | Attack simulation & enumeration | Nmap, Netcat, Metasploit |
+| Windows Endpoint | Victim system | Sysmon (Olaf Hartong config), Defender, Firewall |
+| Splunk Enterprise | Centralized log analysis | Custom Sysmon TA for field extraction |
 
 ---
 
-## Networking
+## 🌐 Networking Design
 
-- Internal / host-only network for all VMs  
-- Static IPs for consistency  
-- Snapshots taken before testing  
-- Avoided NAT-only to maintain L3 connectivity for multi-VM testing
-
----
-
-## Key Troubleshooting Scenarios
-
-1. **Nmap reports all ports “filtered”**
-   - Issue: Windows Firewall silently dropping probes
-   - Fix: Explicit inbound rules for ICMP/TCP
-2. **Splunk ingesting Sysmon logs but fields missing**
-   - Issue: XML unflattened, missing TA
-   - Fix: Custom props.conf / transforms & aliases
-3. **PowerShell firewall commands failing**
-   - Issue: Incorrect parameter usage
-   - Fix: Explicit New-NetFirewallRule commands
+- Internal / host-only virtual network  
+- Static IP addressing for consistency  
+- VM snapshots taken before testing  
+- NAT-only networking avoided to preserve L3 visibility and realistic scanning behavior  
 
 ---
 
-## Why This Matters
+## 🧯 Key Troubleshooting Scenarios
 
-This lab mirrors real SOC challenges:
+1. **Nmap reports all ports as “filtered”**  
+   - Root cause: Windows Firewall silently dropping probes  
+   - Resolution: Explicit inbound ICMP/TCP firewall rules  
 
-- Logs exist but aren’t usable  
-- Tools appear broken due to configuration  
-- Misconfiguration looks like failure  
+2. **Sysmon logs present but unusable in Splunk**  
+   - Root cause: Raw XML ingestion without field extraction  
+   - Resolution: Custom Sysmon Technical Add-on (`props.conf`, `transforms.conf`, field flattening)  
 
-
----
-
-## Repository Structure
-
-See the folder breakdown above. Each section is meant to document **why it exists, how it works, and what I learned**.
-
----
-
-## How to Use
-
-- Read files sequentially for full lab context   
-- Review <a href="https://github.com/Volpezer0x/Detection-Lab/blob/main/07-issues-and-troubleshooting.md">07-issues-and-troubleshooting</a> for real-world problem-solving examples  
+3. **PowerShell firewall commands failing**  
+   - Root cause: Incorrect parameter usage  
+   - Resolution: Correct `New-NetFirewallRule` syntax and validation  
 
 ---
 
-## Ongoing Work
+## 🧠 Why This Lab Matters
 
-- Build detection logic on parsed Sysmon events  
-- Add advanced attack scenarios  
-- Expand documentation for multi-layer threat modeling
-- Mapping generated telemetry to MITRE ATT&CK techniques
-to validate detection coverage.
+This lab reflects common SOC realities:
+
+- Logs exist, but detection fails  
+- Tools appear broken due to configuration gaps  
+- Misconfiguration masquerades as visibility loss  
+
+The focus is on **understanding why data looks the way it does**, not simply that it exists.
+
+---
+
+## 🗂️ Repository Structure
+
+Each section documents:
+- **why** it exists  
+- **how** it works  
+- **what** was learned  
+
+Files are organized to follow the investigation lifecycle rather than tool order.
+
+---
+
+## ▶️ How to Read This Lab
+
+- Start with the lab scope and architecture setup  
+- Proceed sequentially through the numbered sections  
+- Review `07-issues-and-troubleshooting` for real-world failure analysis  
+
+---
+
+## 🚧 Ongoing Work
+
+- Build detection logic using parsed Sysmon telemetry  
+- Add additional attack scenarios  
+- Map observed behavior to MITRE ATT&CK techniques  
+- Validate detection coverage and investigative workflows  
