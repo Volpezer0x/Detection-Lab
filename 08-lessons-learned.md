@@ -1,9 +1,9 @@
-# ⚠This Page Is Under Construction
 # 🧠 Lessons Learned
 
-- Most failures were configuration-related
-- Assumptions are dangerous
-- Visibility gaps are common
-- Detection engineering requires patience
+- Telemetry collection does not equal detection
+- Process GUIDs are critical for reliable event correlation
+- Parent-child relationships often matter more than the process itself
+- Misconfigured ingestion can silently destroy visibility
+- Defender warnings do not guarantee prevention
 
-This lab reinforced that **real-world security work is messy**, and documentation matters.
+This lab reinforced the importance of understanding **how logs are generated, parsed, and queried**, not just that they exist.
