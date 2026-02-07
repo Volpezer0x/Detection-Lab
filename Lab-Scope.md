@@ -1,6 +1,6 @@
 # 🔎 Lab Scope & Context
 
-This lab focuses on **endpoint detection engineering** and defensive investigation workflows — not exploit development or red-team operations.
+This lab focuses on **endpoint detection engineering** and defensive investigation workflows, not exploit development or red-team operations.
 
 The primary objective is to understand:
 - how attacker actions generate endpoint telemetry
