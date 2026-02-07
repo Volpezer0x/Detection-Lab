@@ -168,10 +168,7 @@ Always validate PowerShell parameters with Get-Help
 
 - Allow inbound ICMP on Windows.
 ```powershell
-New-NetFirewallRule -Name AllowPing `
-  -Protocol ICMPv4 `
-  -IcmpType 8 `
-  -Action Allow
+New-NetFirewallRule -Name AllowPing -Protocol ICMPv4 -IcmpType 8 -Action Allow
 ```
 
 ## Lesson Learned
