@@ -1,12 +1,11 @@
 # 🧪 Lab Overview
 
-This home lab is part of a multi-stage cybersecurity learning series focused on **detection engineering and telemetry analysis**.
+This lab simulates a basic endpoint compromise to study how attacker actions generate telemetry and how that data is analyzed in Splunk.
 
-Rather than following isolated tool tutorials, the lab is designed to simulate **real attacker behavior** and observe how that activity appears from a defender’s perspective.
+Focus areas:
+- Windows + Sysmon telemetry
+- SIEM ingestion and parsing
+- Manual detection via SPL
+- Process lineage and command-line analysis
 
-The emphasis is on:
-- generating realistic endpoint telemetry
-- understanding how tools interact
-- identifying why things *don’t* work when assumptions are wrong
-
-This repository documents the process honestly — including mistakes, misconfigurations, and fixes.
+This is a **defensive, learning-focused lab** designed to build investigation and detection engineering fundamentals.
