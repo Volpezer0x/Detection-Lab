@@ -86,10 +86,7 @@ Windows Defender Firewall blocks ICMP Echo Requests by default
 
 ## Fix
 ```powershell
-New-NetFirewallRule -Name AllowICMP `
-  -Protocol ICMPv4 `
-  -IcmpType 8 `
-  -Action Allow
+New-NetFirewallRule -Name AllowICMP -Protocol ICMPv4 -IcmpType 8 -Action Allow
 ```
 
 ## Result
