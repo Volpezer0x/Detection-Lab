@@ -72,7 +72,7 @@ The Process GUID was used to isolate all activity related to that execution chai
 GUID uniquely identifies a single process instance from creation to termination and remains consistent across related Sysmon events, this is why it was prefered over simply using Process ID
 
 ```spl
-index=endpoint <4f2c9e7a-91b4-65f2-0000-0010f3a40000>
+index=endpoint {4f2c9e7a-91b4-65f2-0000-0010f3a40000}
 | table _time ParentImage Image CommandLine
 ```
 
