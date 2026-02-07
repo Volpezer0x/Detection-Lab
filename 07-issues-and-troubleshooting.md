@@ -82,11 +82,7 @@ Windows Firewall blocks:
 
 Explicitly allow inbound traffic instead of disabling the firewall:
 ```powershell
-New-NetFirewallRule -DisplayName "Allow Test Port" `
-  -Protocol TCP `
-  -LocalPort 8050 `
-  -Direction Inbound `
-  -Action Allow
+New-NetFirewallRule -DisplayName "Allow Test Port" -Protocol TCP -LocalPort 8050 -Direction Inbound -Action Allow
 ```
 
 ## Lesson Learned
