@@ -471,9 +471,33 @@ Verified via:
 ```spl
 | fields dest_port
 ```
+
+## ❌ ISSUE 16 — Confusion Between `source` and `sourcetype`
+
+### Symptom
+Searches based on `source` returned results, but expected field extractions did not apply.
+
+### Diagnosis
+- Splunk field parsing is driven by **sourcetype**, not source
+- Custom TA matched on: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+### Fix
+Ensured searches and props.conf stanzas matched the correct **sourcetype**.
+
+### Lesson Learned
+> `source` is metadata.  
+> `sourcetype` controls parsing.
+> 
 ## Lesson Learned
 
 Field presence depends on event type.
+
+> **Advanced Insight**
+>
+> Several issues in this lab were not configuration errors — they were **correct security controls behaving as intended**.
+>
+> This reinforced an important lesson:
+> > Detection engineering starts with understanding *why* visibility is missing, not assuming failure.
 
 ## 📚 Final Meta-Lesson
 
@@ -481,7 +505,7 @@ Field presence depends on event type.
 
 - Firewalls worked as designed
 
-- SIEMs require parsing !!!
+- SIEMs do not provide value without **intentional normalization**
 
 - Logs are useless without normalization
 
