@@ -143,10 +143,7 @@ A parameter cannot be found that matches parameter name 'AllowInboundEchoRequest
 
 Create explicit ICMP rule:
 ```powershell
-New-NetFirewallRule -Name AllowPing `
-  -Protocol ICMPv4 `
-  -IcmpType 8 `
-  -Action Allow
+New-NetFirewallRule -Name AllowPing -Protocol ICMPv4 -IcmpType 8 -Action Allow
 ```
 ## Lesson Learned
 
