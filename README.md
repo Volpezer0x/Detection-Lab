@@ -79,7 +79,7 @@ Files are organized to follow the investigation lifecycle rather than tool order
 
 - Start with the lab scope and architecture setup  
 - Proceed sequentially through the numbered sections  
-- Review <a href="https://github.com/Volpezer0x/Detection-Lab">07-issues-and-troubleshooting</a> for real-world failure analysis  
+- Review <a href="https://github.com/Volpezer0x/Detection-Lab/blob/main/07-issues-and-troubleshooting.md">07-issues-and-troubleshooting</a> for real-world failure analysis  
 ---
 
 ## 🚧 Ongoing Work
