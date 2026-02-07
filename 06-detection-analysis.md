@@ -84,6 +84,55 @@ This confirmed:
 
 - the full execution timeline
 
+## 🆔 Why Process GUIDs Are Better Than Process IDs
+
+While Process IDs (PIDs) are useful, they are not reliable for forensic correlation in modern systems.
+
+## 🚫 Limitations of Process IDs
+
+- PIDs are reused by the operating system
+
+- Short-lived processes can recycle PIDs quickly
+
+- PIDs are unique only at a point in time
+
+- Correlating across logs can lead to false associations
+
+## ✅ Advantages of Process GUIDs
+
+- Globally unique per process execution
+
+- Never reused
+
+- Consistent across all Sysmon event types
+
+- Designed specifically for cross-event correlation
+
+- Ideal for attack chain reconstruction
+
+## 🧠 Practical SOC Perspective
+
+In real investigations:
+
+- PIDs answer “what process is running right now?”
+
+- GUIDs answer “what exact execution did this activity belong to?”
+
+For this reason, Process GUIDs are the preferred pivot point when:
+
+- tracking parent-child relationships
+
+- correlating network, file, and registry events
+
+- reconstructing attacker timelines
+
+## 🎯 Key Takeaway
+
+- Process IDs help with visibility.
+- Process GUIDs enable investigation.
+
+This lab intentionally used Process GUIDs to mirror real-world SOC and DFIR practices.
+
 ## 🌐 Step 5: Network Confirmation
 
 Network telemetry was correlated with process execution to confirm command-and-control behavior.
