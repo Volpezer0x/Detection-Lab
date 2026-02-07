@@ -160,7 +160,7 @@ index=endpoint source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" Even
 
 ## 🧯 Lessons Learned
 
-- Sysmon logs must be parsed to be actionable — raw XML is unusable for detection.
+- Sysmon logs must be parsed to be actionable, raw XML is unusable for detection.
 
 - Sourcetype and index configuration are critical for proper event visibility.
 
