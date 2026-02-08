@@ -101,7 +101,7 @@ Telemetry ingested includes:
 - Installed **Splunk Enterprise** on the Windows endpoint (port `8000`)  
 - Custom Sysmon **Technical Add-on (TA)** used for XML parsing and field flattening  
 - Index used for all telemetry: `endpoint`  
-- Verified ingestion via Splunk Web search interface (`http://<windows_ip>:8000`)  
+- Verified ingestion via Splunk Web search interface (`http://192.168.20.10:8000`)  
 - License fully operational, no ingestion delays observed  
 
 **Notes:**
